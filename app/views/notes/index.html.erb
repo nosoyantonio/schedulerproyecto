@@ -1,0 +1,56 @@
+<style>
+.font
+{
+  font-family: monospace;
+  color: white;
+}
+td 
+    {
+        border: 0px solid black;
+        background-color: #00695C;
+        height: 60px;
+        border-radius: 5px;
+        padding: 9px;
+    }
+.espace
+    {
+      width: 350px;
+    }
+a
+{
+  text-decoration: none;
+  color: black;
+}
+</style>
+
+<br>
+<div>
+<table width="100%">
+<td>
+<center><h1><div class="font">Notes</div></h1></center>
+</td>
+</table>
+</div>
+<br>
+
+<p id="notice"><%= notice %></p>
+
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+      <h4>Body:</h4>
+        <td><%= note.body %></td>
+        <br>
+        <p>
+        <td><%= link_to 'Show', note %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </p>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Note', new_note_path %>

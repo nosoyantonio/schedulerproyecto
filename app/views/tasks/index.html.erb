@@ -1,0 +1,63 @@
+<style>
+.font
+{
+  font-family: monospace;
+  color: white;
+}
+td 
+    {
+        border: 0px solid black;
+        background-color: #00695C;
+        height: 60px;
+        border-radius: 5px;
+        padding: 9px;
+    }
+.espace
+    {
+      width: 350px;
+    }
+a
+{
+  text-decoration: none;
+  color: black;
+}
+</style>
+<br>
+<div>
+<table width="100%">
+<td>
+<center><h1><div class="font">Tasks</div></h1></center>
+</td>
+</table>
+</div>
+<br>
+
+<p id="notice"><%= notice %></p>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <h4>Name:</h4>
+        <td><%= task.name %></td>
+        <p></p>
+        <h4>Description:</h4>
+        <td><%= task.description %></td>
+        <p></p>
+        <h4>Code:</h4>
+        <td><%= task.code %></td>
+        <p></p>
+        <h4>Due Date:</h4>
+        <td><%= task.due_date %></td>
+        <br>
+        <p>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </p>
+        </tr>
+    <% end %>
+  </tbody>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
